@@ -1,0 +1,22 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "synthetic-demo-report",
+  "Results": [
+    {
+      "Target": "synthetic-demo (debian 12)",
+      "Class": "os-pkgs",
+      "Type": "debian",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2024-6387",
+          "PkgName": "openssh-server",
+          "InstalledVersion": "1:9.2p1-2+deb12u2",
+          "FixedVersion": "1:9.2p1-2+deb12u3",
+          "Severity": "HIGH",
+          "Title": "regreSSHion: unauthenticated remote code execution in sshd",
+          "Description": "A signal handler race condition in the OpenSSH server (sshd), from 8.5p1 and before 9.8p1. It can allow unauthenticated remote code execution over the network. The vulnerable code is reached when the LoginGraceTime timer fires. Setting LoginGraceTime to 0 removes the code execution risk, but leaves sshd open to denial of service."
+        }
+      ]
+    }
+  ]
+}
