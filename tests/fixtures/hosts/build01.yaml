@@ -1,0 +1,4 @@
+# Synthetic demo host.
+host: build01
+packages: {}
+files: {}

@@ -1,0 +1,21 @@
+# Synthetic demo host.
+host: batch01
+packages:
+  openssh-server:
+    version: 1:9.2p1-2+deb12u2
+    fixed:
+      1:9.2p1-2+deb12u3: false
+    runtime:
+      processes: []
+      services_enabled: []
+      services_provided:
+      - ssh.service
+      listeners: []
+files:
+  /etc/ssh/sshd_config: 'Port 22
+
+    PermitRootLogin no
+
+    PasswordAuthentication no
+
+    '

@@ -1,0 +1,26 @@
+# Synthetic demo host.
+host: patched02
+packages:
+  openssh-server:
+    version: 1:9.2p1-2+deb12u3
+    fixed:
+      1:9.2p1-2+deb12u3: true
+    runtime:
+      services_provided:
+      - ssh.service
+      processes:
+      - pid: '812'
+        path: /usr/sbin/sshd
+        deleted: true
+      services_enabled:
+      - ssh.service
+      listeners:
+      - 0.0.0.0:22
+files:
+  /etc/ssh/sshd_config: 'Port 22
+
+    PermitRootLogin no
+
+    PasswordAuthentication no
+
+    '

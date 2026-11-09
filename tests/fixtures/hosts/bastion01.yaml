@@ -1,0 +1,28 @@
+# Synthetic demo host.
+host: bastion01
+packages:
+  openssh-server:
+    version: 1:9.2p1-2+deb12u2
+    fixed:
+      1:9.2p1-2+deb12u3: false
+    runtime:
+      services_provided:
+      - ssh.service
+      processes:
+      - pid: '812'
+        path: /usr/sbin/sshd
+        deleted: false
+      services_enabled:
+      - ssh.service
+      listeners:
+      - 0.0.0.0:22
+files:
+  /etc/ssh/sshd_config: 'Port 22
+
+    PermitRootLogin no
+
+    PasswordAuthentication no
+
+    LoginGraceTime 0
+
+    '
