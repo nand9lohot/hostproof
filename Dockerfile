@@ -1,5 +1,5 @@
 # Runs HostProof as a non-root user with hash-verified dependencies.
-FROM python:3.12-slim-bookworm
+FROM python:3.15-slim-bookworm
 
 ENV PIP_NO_CACHE_DIR=1 PYTHONDONTWRITEBYTECODE=1
 
