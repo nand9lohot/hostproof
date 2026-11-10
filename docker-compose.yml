@@ -1,0 +1,46 @@
+# Runs HostProof and its LLM as separate containers on a private network.
+# The model's port isn't published, so only HostProof can reach it.
+services:
+  ollama:
+    image: ollama/ollama:0.40.13
+    restart: unless-stopped
+    volumes:
+      - ollama-models:/root/.ollama
+    networks:
+      - llm
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  hostproof:
+    build: .
+    profiles: ["cli"]
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      HOSTPROOF_OLLAMA_URL: http://ollama:11434
+      HOSTPROOF_ALLOW_REMOTE_LLM: "1"
+      HOSTPROOF_MODEL: ${HOSTPROOF_MODEL:-qwen2.5:7b}
+    working_dir: /work
+    volumes:
+      - ./workspace:/work
+    tmpfs:
+      - /tmp
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - llm
+      - targets
+
+networks:
+  llm: {}
+  targets: {}
+
+volumes:
+  ollama-models: {}

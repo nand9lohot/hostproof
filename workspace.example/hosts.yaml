@@ -1,0 +1,14 @@
+# Copy this folder to workspace/, then edit it. Keep real keys and reports out of Git.
+defaults:
+  user: hostproof
+  sudo: true
+  key: ssh/id_ed25519
+  known_hosts: ssh/known_hosts
+
+hosts:
+  - name: web01
+    address: 192.0.2.10
+    findings: reports/web01.json
+  - name: db01
+    address: 192.0.2.11
+    findings: reports/db01.json
