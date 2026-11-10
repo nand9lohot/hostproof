@@ -278,9 +278,9 @@ langgraph-prebuilt==1.1.1 \
     --hash=sha256:f1b1a4772e7f9f15ba736411aad3877183ad40cd9349748df76bd2b9f58a83c7 \
     --hash=sha256:fae17c22562e501940eb7aa052a15c58a431febbabf33f8ad172e1b44354a7e4
     # via langgraph
-langgraph-sdk==0.4.11 \
-    --hash=sha256:2550af3bc7cb78ac4facb97d141ec1a76568fa3eb3d29040cff70b45bda84740 \
-    --hash=sha256:6a65be4a8f825966a07317b8e34e3337cd227b9b58b185f0123fd13c3d0116fa
+langgraph-sdk==0.4.14 \
+    --hash=sha256:13eb1fee92504d87c1f0f43c8e213e7ba0a46bd23a07e3198e413d48efac5833 \
+    --hash=sha256:d47a6755890ae537aa80613a3138680ac77f5d256a2d3953af95a96328e6964d
     # via langgraph
 langsmith==0.14.17 \
     --hash=sha256:0aa2c79936c93c7cea9c55656f05e21cc5da715fecbdbda439d084adc08429be \
